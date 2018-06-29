@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="pwr.edu.pl.flickr.flickrpublicfeed.ui.publicfeed.viewmodel.PublicFeedItemViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/photo_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:lines="1"
+                android:text="@{itemViewModel.publicFeedItem.title}"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="200dp" />
+
+            <TextView
+                android:id="@+id/photo_date_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/photo_date_iv"
+                app:publishedDateBind="@{itemViewModel.publicFeedItem.publishedDate}" />
+
+            <ImageView
+                android:id="@+id/photo_photo_iv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_photo_on_list_height"
+                android:contentDescription="@string/cd_photo_from_feed"
+                android:scaleType="centerCrop"
+                app:imageBind="@{itemViewModel.publicFeedItem.imageUrl}"
+                app:layout_constraintBottom_toTopOf="@+id/photo_title_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/img_empty_image" />
+
+            <TextView
+                android:id="@+id/photo_tag_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:lines="1"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/photo_date_iv"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/photo_tag_iv"
+                app:tagsBind="@{itemViewModel.publicFeedItem.tags}" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_flickr1_logo"
+                    android:contentDescription="@string/todo" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_flickr_logo"
+                    android:contentDescription="@string/todo" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_flickr2_logo"
+                    android:contentDescription="@string/todo" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_flickr3_logo"
+                    android:contentDescription="@string/todo" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
